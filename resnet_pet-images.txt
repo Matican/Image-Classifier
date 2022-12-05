@@ -317,4 +317,4 @@ N Images: 40  N Dog Images: 30  N NotDog Images: 10
 Pct Corr dog: 100.0 Pct Corr NOTdog:  90.0  Pct Corr Breed:  90.0
 {'n_images': 40, 'n_dogs_img': 30, 'n_notdogs_img': 10, 'n_match': 33, 'n_correct_dogs': 27, 'n_correct_notdogs': 4, 'n_correct_breed': 27, 'pct_match': 0.825, 'pct_correct_dogs': 0.675, 'pct_correct_breed': 0.675, 'pct_correct_notdogs': 0.1}
 
-** Total Elapsed Runtime: 0:0:5
+** Total Elapsed Runtime: 0:0:6
