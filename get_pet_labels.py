@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: TOBI HASSAN ADELEKE
 # DATE CREATED:  04-12-2022                                
-# REVISED DATE: 
+# REVISED DATE:  07-12-2022
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
 #           - The Image Folder as image_dir within get_pet_labels function and 
@@ -42,7 +42,7 @@ def get_pet_labels(image_dir):
     """
     # Replace None with the results_dic dictionary that you created with this
     # function
-    images = {img:[' '.join(img.lower().replace('_', ' ').split()[:-1])] for img in listdir(image_dir)}
+    images = {img:[' '.join(img.lower().replace('_', ' ').split()[:-1])] for img in listdir(image_dir) if not img.startswith('.')}
     
     return images
 

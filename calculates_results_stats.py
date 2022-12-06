@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: TOBI HASSAN ADELEKE
 # DATE CREATED: 04/12/2022                                 
-# REVISED DATE: 
+# REVISED DATE: 07-12-2022
 # PURPOSE: Create a function calculates_results_stats that calculates the 
 #          statistics of the results of the programrun using the classifier's model 
 #          architecture to classify the images. This function will use the 
@@ -75,9 +75,9 @@ def calculates_results_stats(results_dic):
     n_dogs_img = sum([results_dic[k][3] for k in results_dic])
     n_notdogs_img = sum([1 for k in results_dic if results_dic[k][3] == 0])
     n_match = sum([results_dic[k][2] for k in results_dic])
-    n_correct_dogs = sum([1 for k in results_dic if results_dic[k][2] == 1 and results_dic[k][3] == 1 ])
-    n_correct_notdogs = sum([1 for k in results_dic if results_dic[k][2] == 0 and results_dic[k][3] == 0 ])
-    n_correct_breed = n_correct_dogs
+    n_correct_dogs = sum([1 for k in results_dic if  results_dic[key][3] == 1 and results_dic[key][4] == 1 ])
+    n_correct_notdogs = sum([1 for k in results_dic if results_dic[key][3] == 0 and results_dic[key][4] == 0 ])
+    n_correct_breed = sum([1 for k in results_dic if results_dic[key][2] == 1 and results_dic[key][3] == 1])
 
     results_stats= {
         'n_images': n_images,
@@ -88,9 +88,9 @@ def calculates_results_stats(results_dic):
         'n_correct_notdogs': n_correct_notdogs,
         'n_correct_breed': n_correct_breed,
         'pct_match': n_match / n_images,
-        'pct_correct_dogs': n_correct_dogs / n_images,
-        'pct_correct_breed': n_correct_breed / n_images,
-        'pct_correct_notdogs': n_correct_notdogs / n_images
+        'pct_correct_dogs': 100 * n_correct_dogs / n_dogs_img,
+        'pct_correct_notdogs': 100 * n_correct_notdogs / n_notdogs_img,
+        'pct_correct_breed': 100 * n_correct_breed / n_dogs_img
     }
     
     return results_stats
