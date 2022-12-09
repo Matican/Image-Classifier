@@ -1,7 +1,23 @@
-Command Line Arguments:
-     dir = uploaded_images/ 
-    arch = vgg 
- dogfile = dognames.txt
-
-Pet Image Label Dictionary has 0 key-value pairs.
-Below are 0 of them:
+['great dane', 'great dane', 1]
+['beagle', 'beagle', 1]
+['collie', 'collie', 1]
+['dalmatian', 'dalmatian, coach dog, carriage dog', 1]
+['miniature schnauzer', 'miniature schnauzer', 1]
+['german shepherd dog', 'german shepherd, german shepherd dog, german police dog, alsatian', 1]
+['basenji', 'basenji', 1]
+['cat', 'tabby, tabby cat, cat', 1]
+['golden retriever', 'golden retriever', 1]
+['great horned owl', 'ruffed grouse, partridge, bonasa umbellus', 0]
+['basset hound', 'basset, basset hound', 1]
+['cocker spaniel', 'cocker spaniel, english cocker spaniel, cocker', 1]
+['poodle', 'standard poodle, poodle', 1]
+['beagle', 'beagle', 1]
+['saint bernard', 'saint bernard, st bernard', 1]
+['boxer', 'boxer', 1]
+['great pyrenees', 'kuvasz', 0]
+['german shorthaired pointer', 'german shorthaired pointer', 1]
+['dalmatian', 'dalmatian, coach dog, carriage dog', 1]
+['fox squirrel', 'fox squirrel, eastern fox squirrel, sciurus niger', 1]
+['polar bear', 'ice bear, polar bear, ursus maritimus, thalarctos maritimus', 1]
+['basenji', 'basenji', 1]
+['saint bernard', 'saint bernard, st bernard', 1]

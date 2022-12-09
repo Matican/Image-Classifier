@@ -66,15 +66,17 @@ def classify_images(images_dir, results_dic, model):
            None - results_dic is mutable data type so no return needed.         
     """
 
-    for img in list(results_dic.keys()):
+    for img in list(results_dic):
         cl = classifier(f'{images_dir}/{img}', model )
-        cl = [ i.strip() for i in cl.lower().split(',')]
-
-        if results_dic[img][0] in cl:
-            results_dic[img].extend([results_dic[img][0], 1])
+        cl = cl.lower().strip()
+                
+        if cl.count(results_dic[img][0]):
+            results_dic[img].extend([cl, 1])
         else:
-            results_dic[img].extend([cl[0], 0])
+            results_dic[img].extend([cl, 0])
+            
      
+
 
        
     

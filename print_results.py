@@ -30,9 +30,13 @@
 #       below by the function definition of the print_results function. 
 #       Notice that this function doesn't to return anything because it  
 #       prints a summary of the results using results_dic and results_stats_dic
-# 
-def print_results(results_dic, results_stats_dic, model, 
-                  print_incorrect_dogs = False, print_incorrect_breed = False):
+#
+
+    
+def caps(s):
+    return (' ').join(x.capitalize() for x in s.split(' '))
+    
+def print_results(results_dic, results_stats_dic, model, print_incorrect_dogs = False, print_incorrect_breed = False):
     """
     Prints summary results on the classification and then prints incorrectly 
     classified dogs and incorrectly classified dog breeds if user indicates 
@@ -62,11 +66,39 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """         
+    
+    print(f"\n*** Results Summary for CNN Model Architecture {model.upper()} ***")             
+    print("N Images            :", results_stats_dic['n_images'])
+    print("N Dog Images        :", results_stats_dic['n_dogs_img'])
+    print("N Not-Dog Images    :", results_stats_dic['n_notdogs_img'])
+    print("pct_match           :", "{:.2f}".format(results_stats_dic['pct_match']))
+    print("pct_correct_dogs    :", "{:.2f}".format(results_stats_dic['pct_correct_dogs']))
+    print("pct_correct_notdogs :", "{:.2f}".format(results_stats_dic['pct_correct_notdogs']))
+    print("pct_correct_breed   :", "{:.2f}".format(results_stats_dic['pct_correct_breed']))
+    
 
-    print(results_stats_dic)
-    for k in results_dic:
-        if results_dic[k][2] == 0 and print_incorrect_dogs == False:
-            print(f'incorrect_dogs: {results_dic[k][0]}')
-        if results_dic[k][2] == 0 and results_dic[k][4] == 1 and print_incorrect_breed == False:
-            print(f'incorrect_breed: {results_dic[k][1]}')
+    if print_incorrect_dogs == True:
+        for k in results_dic:
+            if  results_dic[k][4] != results_dic[k][3]:
+                print("\nINCORRECT  Dog/NOT Dog Assignment")
+                break
+                
+        for k in results_dic:
+            if  results_dic[k][4] != results_dic[k][3]:
+                print(f"Real: {results_dic[k][0]}\t\tClassifier: {results_dic[k][1]}")
+
+             
+    if print_incorrect_dogs == True:
+        
+        for k in results_dic:
+            if  results_dic[k][2] == 0 and  (results_dic[k][4] == results_dic[k][3] == 1):
+                print("\nINCORRECT Dog Breed Assignment")
+                break
+                
+        for k in results_dic:
+            if  results_dic[k][2] == 0 and  (results_dic[k][4] == results_dic[k][3] == 1):
+                print(f"Real: {results_dic[k][0]}\t\tClassifier: {results_dic[k][1]}")
+
+
+
     

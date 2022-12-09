@@ -50,7 +50,7 @@ def calculates_results_stats(results_dic):
     the user to determine the 'best' model for classifying images. Note that 
     the statistics calculated as the results are either percentages or counts.
     Parameters:
-      results_dic - Dictionary with key as image filename and value as a List 
+      results - Dictionary with key as image filename and value as a List 
              (index)idx 0 = pet image label (string)
                     idx 1 = classifier label (string)
                     idx 2 = 1/0 (int)  where 1 = match between pet image and 
@@ -72,12 +72,18 @@ def calculates_results_stats(results_dic):
     # this function 
 
     n_images = len(results_dic)
+    
     n_dogs_img = sum([results_dic[k][3] for k in results_dic])
+    
     n_notdogs_img = sum([1 for k in results_dic if results_dic[k][3] == 0])
+    
     n_match = sum([results_dic[k][2] for k in results_dic])
-    n_correct_dogs = sum([1 for k in results_dic if  results_dic[key][3] == 1 and results_dic[key][4] == 1 ])
-    n_correct_notdogs = sum([1 for k in results_dic if results_dic[key][3] == 0 and results_dic[key][4] == 0 ])
-    n_correct_breed = sum([1 for k in results_dic if results_dic[key][2] == 1 and results_dic[key][3] == 1])
+    
+    n_correct_dogs = sum([1 for k in results_dic if  results_dic[k][3] == 1 and results_dic[k][4] == 1 ])
+    
+    n_correct_notdogs = sum([1 for k in results_dic if results_dic[k][3] == 0 and results_dic[k][4] == 0 ])
+    
+    n_correct_breed = sum([1 for k in results_dic if results_dic[k][2] == 1 and results_dic[k][3] == 1])
 
     results_stats= {
         'n_images': n_images,
@@ -87,10 +93,24 @@ def calculates_results_stats(results_dic):
         'n_correct_dogs': n_correct_dogs,
         'n_correct_notdogs': n_correct_notdogs,
         'n_correct_breed': n_correct_breed,
-        'pct_match': n_match / n_images,
+        'pct_match': 100 * n_match / n_images,
         'pct_correct_dogs': 100 * n_correct_dogs / n_dogs_img,
         'pct_correct_notdogs': 100 * n_correct_notdogs / n_notdogs_img,
         'pct_correct_breed': 100 * n_correct_breed / n_dogs_img
     }
     
     return results_stats
+
+
+
+
+
+
+  
+    
+    
+
+
+
+  
+    
